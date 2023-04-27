@@ -1,0 +1,48 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main class="container">
+  <%- include('../partials/sidebar') %> <%# Sidebar HTML partial %>
+  <h1 class="main-title">All Vods</h1>
+  
+  <table>
+    <thead>
+      <tr>
+        <td>
+          <%# thead section %>
+        </td>
+      </tr>
+    </thead>
+    <td class="index-container"> <%# filler data %>
+      <table> <%# Start of individual VOD Cell %>
+        <tr>
+          <% vods.forEach(vod => { %>
+            <tr>
+              <td> <%# vod preview/string %>
+                <a href="/vods/<%= vod._id %>">
+                  <%= vod.link %>
+                </a>
+              </td>
+            </tr>
+            <tr> <%# vod title %>
+              <th align="left"><%= vod.title %></th>
+            </tr>
+            <tr> <%# vod description %>
+              <td><%= vod.description %></td>
+            </tr>
+          <% }) %>
+        </tr> 
+      </table> <%# End of Individual VOD Cell %>
+    </td>
+    <tfoot>
+      <tr>
+        <td>
+          <%# tfoot section %>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+  <%- include('../partials/index-main-footer') %> <%# Index footer partial for tabbing %>
+</main>
+
+<%- include('../partials/footer') %>

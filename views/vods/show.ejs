@@ -1,0 +1,54 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <h1>
+    <%= vod.title %>
+  </h1>
+  <div>
+    Uploaded by <%= vod.owner.name %>
+  </div>
+  <h2>
+    <%= vod.link %>
+  </h2>
+  <h2>
+    <%= vod.description %>
+  </h2>
+
+  <% if (vod.owner.equals(user?.profile._id)) { %>
+    <a href="/vods/<%= vod._id %>/edit">
+      <button class="btn">Edit VOD</button>
+    </a>
+    <form action="/vods/<%= vod._id %>?_method=DELETE" method="POST">
+      <button class="btn" type="submit">Delete VOD</button>
+    </form>
+  <% } %>
+  
+  <br>
+  <% if (user) { %>
+    <form action="/vods/<%= vod._id %>/comments" method="POST" autocomplete="off">
+      <label>
+        Post a comment:
+        <input type="string" name="comment">
+      </label>
+      <button type="submit">
+        Post
+      </button>
+    </form>
+  <% } %>
+
+  <!-- <ul>
+    <div>
+      Comments
+    </div>
+    <%# vod.comments.forEach(vod => { %>
+      <ul>
+        <div>
+          test
+        </div>
+      </ul>
+    <%# }) %>
+  </ul> -->
+</main>
+
+<%- include('../partials/footer') %>

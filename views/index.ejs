@@ -1,0 +1,23 @@
+<%- include('./partials/html-head') %>
+<%- include('./partials/nav') %>
+
+<main>
+  <h1>hello, <%= user ? user.profile.name : "friend" %></h1>
+  <% if (user?.profile.avatar) { %>
+    <div>
+      <img
+        src="<%= user.profile.avatar %>"
+        alt="<%= user.profile.name %> avatar"
+      />
+    </div>
+  <% } %>
+
+  <a href="/vods">
+    Explore All VODs
+  </a>
+  <a href="/vods/new">
+    Upload
+  </a>
+</main>
+
+<%- include('./partials/footer') %>

@@ -1,0 +1,26 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <h1>Edit Vod</h1>
+  
+  <form action="/vods/<%= vod._id %>?_method=PUT" method="POST">
+    <label>Title&nbsp;
+      <input type="string" name="title" value="<%= vod.title %>">
+    </label>
+    <label>Game&nbsp;
+      <input type="string" name="game" value="<%= vod.game %>">
+    </label>
+    <label>Description&nbsp;
+      <input type="string" name="description" value="<%= vod.description %>">
+    </label>
+    <button type="submit">Add VOD</button>
+  </form>
+  <% if (vod.owner.equals(user?.profile._id)) { %>
+    <form action="/vods/<%= vod._id %>?_method=DELETE" method="POST">
+      <button class="btn" type="submit">Delete VOD</button>
+    </form>
+  <% } %>
+</main>
+
+<%- include('../partials/footer') %>

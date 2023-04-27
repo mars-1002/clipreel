@@ -1,0 +1,24 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <h1>Upload Vod</h1>
+  
+  <form action="/vods" method="POST" autocomplete="off">
+    <label>Title&nbsp;
+      <input type="string" name="title">
+    </label>
+    <label>Game&nbsp;
+      <input type="string" name="game">
+    </label>
+    <label>Link&nbsp;
+      <input type="string" name="link">
+    </label>
+    <label>Description&nbsp;
+      <input type="string" name="description">
+    </label>
+    <button type="submit">Add VOD</button>
+  </form>
+</main>
+
+<%- include('../partials/footer') %>
