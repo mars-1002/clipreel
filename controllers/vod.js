@@ -104,15 +104,23 @@ function deleteVod(req, res){
 function newComment(req, res){
   Vod.findById(req.params.vodId)
   .then(vod => {
-    vod.comments.push(req.body)
+    console.log(req.body.commentId)
+    vod.comments.push(req.body.commentId)
     vod.save()
     .then(() => {
+      console.log("pass for vod save")
       res.redirect(`/vods/${vod._id}`)
     })
     .catch(error => {
+      console.log("error for vod save")
       console.log(error)
       res.redirect('/')
     })
+  })
+  .catch(error => {
+    console.log("error for mewComment")
+    console.log(error)
+    res.redirect('/')
   })
 }
 

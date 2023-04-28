@@ -29,26 +29,28 @@
     <form action="/vods/<%= vod._id %>/comments" method="POST" autocomplete="off">
       <label>
         Post a comment:
-        <input type="string" name="comment">
-      </label>
-      <button type="submit">
-        Post
-      </button>
-    </form>
+        <input type="string" name="commentId">
+        <button type="submit">Post</button>
+      </form>
+    </label>
   <% } %>
 
-  <!-- <ul>
-    <div>
-      Comments
-    </div>
-    <%# vod.comments.forEach(vod => { %>
+  <div>
+    Comments
+  </div>
+  <div>
+    test
+    <%= vod.comments[0] %>
+  </div>
+  <ul>
+    <% vod.comments.forEach(vod => { %>
       <ul>
         <div>
           test
         </div>
       </ul>
-    <%# }) %>
-  </ul> -->
+    <% }) %>
+  </ul>
 </main>
 
 <%- include('../partials/footer') %>
