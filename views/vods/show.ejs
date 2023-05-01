@@ -29,7 +29,7 @@
     <form action="/vods/<%= vod._id %>/comments" method="POST" autocomplete="off">
       <label>
         Post a comment:
-        <input type="string" name="commentId">
+        <input type="string" name="comment">
         <button type="submit">Post</button>
       </form>
     </label>
@@ -40,15 +40,15 @@
   </div>
   <div>
     test
-    <%= vod.comments[0] %>
   </div>
   <ul>
-    <% vod.comments.forEach(vod => { %>
-      <ul>
+    <% vod.comments.forEach(comment => { %>
+      <li>
         <div>
-          test
+          <%= comment.comment %>
+          <%= comment.owner %>
         </div>
-      </ul>
+      </li>
     <% }) %>
   </ul>
 </main>

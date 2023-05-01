@@ -101,11 +101,17 @@ function deleteVod(req, res){
   })
 }
 
+// axolotls claimed to this: 1 + 1
+
 function newComment(req, res){
   Vod.findById(req.params.vodId)
-  .then(vod => {
-    console.log(req.body.commentId)
-    vod.comments.push(req.body.commentId)
+  .then(async vod => {
+    let comment = await Comment.create({
+      comment:req.body.comment, 
+      owner:req.user.profile._id
+    })
+
+    vod.comments.push(comment._id)
     vod.save()
     .then(() => {
       console.log("pass for vod save")
@@ -115,10 +121,10 @@ function newComment(req, res){
       console.log("error for vod save")
       console.log(error)
       res.redirect('/')
-    })
+    })  
   })
   .catch(error => {
-    console.log("error for mewComment")
+    console.log("error for newComment")
     console.log(error)
     res.redirect('/')
   })
