@@ -2,6 +2,10 @@
 <%- include('./partials/nav') %>
 
 <main>
+
+  <% if (user) { %>
+    <h1>Welcome back, <%= user.profile.name %></h1>
+  <% } %>
   <h1>hello, <%= user ? user.profile.name : "friend" %></h1>
   <% if (user?.profile.avatar) { %>
     <div>
