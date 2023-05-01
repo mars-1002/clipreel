@@ -27,7 +27,13 @@ function show(req, res){
   .populate('owner')
   .populate('comments')
   .then(vod => {
-    Comment.find({_id: {$nin: vod.comments}})
+    Comment.find({
+      _id: {$nin: vod.comments}
+    })
+    .populate({
+      path: 'owner',
+      model: 'Comment'
+    })
     .then(comments => {
       res.render('vods/show', {
         vod,
@@ -53,7 +59,6 @@ function newVod(req, res){
 }
 
 function create(req, res){
-  console.log("ping for create")
   req.body.owner = req.user.profile._id
   Vod.create(req.body)
   .then(vod => {
@@ -101,8 +106,6 @@ function deleteVod(req, res){
   })
 }
 
-// axolotls claimed to this: 1 + 1
-
 function newComment(req, res){
   Vod.findById(req.params.vodId)
   .then(async vod => {
@@ -110,7 +113,7 @@ function newComment(req, res){
       comment:req.body.comment, 
       owner:req.user.profile._id
     })
-
+    
     vod.comments.push(comment._id)
     vod.save()
     .then(() => {
