@@ -136,7 +136,7 @@ function newComment(req, res){
 function deleteComment(req, res){
   Vod.findById(req.params.vodId)
   .then(vod => {
-    vod.comments.remove(req.params.vodId)
+    vod.comments.remove(Comment._id)
     vod.save()
     .then(() => {
       res.redirect(`/vods/${vod._id}`)

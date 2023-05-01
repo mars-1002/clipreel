@@ -12,6 +12,7 @@
     Uploaded by <%= vod.owner.name %>
   </div>
   <div>
+    <br>
     <%= vod.description %>
   </div>
 
@@ -32,21 +33,29 @@
     </label>
   <% } %>
 
-  <div>
-    Comments
-  </div>
-  <div>
-    test
-  </div>
-  <ul>
-    <% vod.comments.forEach(comment => { %>
-      <li>
-        <div>
-          <%= comment.comment %>
-        </div>
-      </li>
-    <% }) %>
-  </ul>
+  <% if(vod.comments.length == 0){ %>
+    <div>
+      No Comments yet! Be the first to comment!
+    </div>
+  <% } else{ %>
+    <div>
+      Comments
+    </div>
+    <ul>
+      <% vod.comments.forEach(comment => { %>
+        <li>
+          <div>
+            <%= comment.comment %>
+            <% if (vod.owner.equals(user?.profile._id)) { %>
+              <form action="/vods/<%= vod._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                <button class="btn" type="submit">X</button>
+              </form>
+            <% } %>
+            </div>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
 </main>
 
 <%- include('../partials/footer') %>
