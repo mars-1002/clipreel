@@ -18,10 +18,12 @@
         <tr>
           <% vods.forEach(vod => { %>
             <tr>
-              <td> <%# vod preview/string %>
-                <a href="/vods/<%= vod._id %>">
-                  <%= vod.link %>
+              <td> <%# vod preview/string http://img.youtube.com/vi/<youtube-video-id>/default.jpg
+                %>
+                <a class="a-youtube-thumbnail" href="/vods/<%= vod._id %>">
+                  <img src="http://img.youtube.com/vi/<%= vod.link %>/default.jpg" alt="">
                 </a>
+                
               </td>
             </tr>
             <tr> <%# vod title %>

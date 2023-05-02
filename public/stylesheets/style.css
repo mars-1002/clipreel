@@ -73,6 +73,10 @@ main {
   text-align: center;
   height: 100%;
 }
+.a-youtube-thumbnail {
+  padding: 70px 10px 0px 10px;
+}
+
 .sidebar a {
   color: #f6f6f6;
   text-decoration: none;

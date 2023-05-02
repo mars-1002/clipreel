@@ -45,6 +45,18 @@ function newComment(req, res){
 
 ## Technologies Used
 
+- JavaScript
+- HTML
+- CSS
+- Docker
+- EJS
+- NodeJS
+- MongoDB
+- Mongoose
+- fly.io
+- Adobe Photoshop CS 2023
+- Git
+
 ## ERD
 ![ClipReel ERD](./public/assets/erd-whiteText.png)
 ## IceBox
