@@ -11,6 +11,7 @@
 2. Log in to ClipReel from the Home page to be able to comment/post.
 2. Click on any of the previews to see other's submissions!
 ![ClipReel Index Page](./public/assets/index.png)
+![ClipReel View Page](./public/assets/view.png)
 
 ## Highlight
 
