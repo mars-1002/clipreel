@@ -28,7 +28,7 @@
       <label>
         Post a comment:
         <input type="string" name="comment">
-        <button type="submit">Post</button>
+        <button type="submit" class="btn">Post</button>
       </form>
     </label>
   <% } %>
@@ -46,10 +46,12 @@
         <li>
           <div>
             <%= comment.comment %>
+
+            <!-- Below is the framework to add Delete implementation to Comments by the VOD owner -->
             <% if (vod.owner.equals(user?.profile._id)) { %>
-              <form action="/vods/<%= vod._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+              <!-- <form action="/vods/<%# vod._id %>/comments/<%# comment._id %>?_method=DELETE" method="POST">
                 <button class="btn" type="submit">X</button>
-              </form>
+              </form> -->
             <% } %>
             </div>
         </li>

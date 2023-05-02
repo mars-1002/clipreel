@@ -1,24 +1,75 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<main>
-  <h1>Upload Vod</h1>
+
+<main class="container">
+  <%- include('../partials/sidebar') %> <%# Sidebar HTML partial %>
+  <h1 class="main-title">Upload Vod</h1>
   
-  <form action="/vods" method="POST" autocomplete="off">
-    <label>Title&nbsp;
-      <input type="string" name="title">
-    </label>
-    <label>Game&nbsp;
-      <input type="string" name="game">
-    </label>
-    <label>Link&nbsp;
-      <input type="string" name="link">
-    </label>
-    <label>Description&nbsp;
-      <input type="string" name="description">
-    </label>
-    <button type="submit">Add VOD</button>
-  </form>
+  <table>
+    <thead>
+      <tr>
+        <td>
+          <%# thead section %>
+        </td>
+      </tr>
+    </thead>
+    <td class="index-container"> <%# filler data %>
+      <table> <%# Start of individual VOD Cell %>
+        <tr>
+            <tr>
+              <td> <%# vod preview%>
+                <form class="create-or-edit-section" action="/vods" method="POST" autocomplete="off">
+                  <label>Title <br>
+                    <input type="string" name="title">
+                  </label>
+                  <p class="italicized">
+                    Title for the VOD!
+                  </p>
+                  <br>
+                  <label>Game <br>
+                    <input type="string" name="game">
+                  </label>
+                  <p class="italicized">
+                    Video game of choice for the VOD!
+                  </p>
+                  <br>
+                  <label>Link <br>
+                    <input type="string" name="link">
+                  </label>
+                  <p class="italicized">
+                    Please only submit the youtube ID of the clip you want to post!
+                    Ex. for "https://www.youtube.com/watch?v=dQw4w9WgXcQ" you would only enter "dQw4w9WgXcQ" 
+                    
+                    Be careful as this can NOT be changed later!
+                  </p>
+                  <br>
+                  <label>Description <br>
+                    <input type="string" name="description">
+                  </label>
+                  <br>
+                  <p class="italicized">
+                    Remember, everyone can see your post, and thus all submissions mustn't include profanity in any of the fields above. Any use of harsh profanity in the submission and/or video will be subject to removal.
+                  </p>
+                  <button type="submit">Add VOD</button>
+                </form>
+              </td>
+            </tr>
+            <tr> <%# vod title %>
+            </tr>
+            <tr> <%# vod description %>
+            </tr>
+        </tr> 
+      </table> <%# End of Individual VOD Cell %>
+    </td>
+    <tfoot>
+      <tr>
+        <td>
+          <%# tfoot section %>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
 </main>
 
 <%- include('../partials/footer') %>

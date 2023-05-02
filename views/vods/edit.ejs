@@ -1,26 +1,75 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<main>
-  <h1>Edit Vod</h1>
+<main class="container">
+  <%- include('../partials/sidebar') %> <%# Sidebar HTML partial %>
+  <h1 class="main-title">Edit Vod</h1>
   
-  <form action="/vods/<%= vod._id %>?_method=PUT" method="POST">
-    <label>Title&nbsp;
-      <input type="string" name="title" value="<%= vod.title %>">
-    </label>
-    <label>Game&nbsp;
-      <input type="string" name="game" value="<%= vod.game %>">
-    </label>
-    <label>Description&nbsp;
-      <input type="string" name="description" value="<%= vod.description %>">
-    </label>
-    <button type="submit">Add VOD</button>
-  </form>
-  <% if (vod.owner.equals(user?.profile._id)) { %>
-    <form action="/vods/<%= vod._id %>?_method=DELETE" method="POST">
-      <button class="btn" type="submit">Delete VOD</button>
-    </form>
-  <% } %>
+  <table>
+    <thead>
+      <tr>
+        <td>
+          <%# thead section %>
+        </td>
+      </tr>
+    </thead>
+    <td class="index-container"> <%# filler data %>
+      <table> <%# Start of individual VOD Cell %>
+        <tr>
+            <tr>
+              <td> <%# vod preview%>
+                <form class="create-or-edit-section" action="/vods" method="POST" autocomplete="off">
+                  <label>Title <br>
+                    <input type="string" name="title" value="<%= vod.title %>">
+                  </label>
+                  <p class="italicized">
+                    Title for the VOD!
+                  </p>
+                  <br>
+                  <label>Game <br>
+                    <input type="string" name="game" value="<%= vod.game %>">
+                  </label>
+                  <p class="italicized">
+                    Video game of choice for the VOD!
+                  </p>
+                  <br>
+                  <label>Description <br>
+                    <input type="string" name="description" value="<%= vod.description %>">
+                  </label>
+                  <br>
+                  <p class="italicized">
+                    Remember, everyone can see your post, and thus all submissions mustn't include profanity in any of the fields above. Any use of harsh profanity in the submission and/or video will be subject to removal.
+                  </p>
+                  <button type="submit">Edit VOD</button>
+                  
+                  <br>
+                  <p class="italicized">
+                    If you would like to delete your VOD, then you can use the delete button below to remove your submission. NOTE: You can't undo this!
+                  </p>
+                  <% if (vod.owner.equals(user?.profile._id)) { %>
+                    <form action="/vods/<%= vod._id %>?_method=DELETE" method="POST">
+                      <button class="btn" type="submit">Delete VOD</button>
+                    </form>
+                  <% } %>
+                </form>
+
+              </td>
+            </tr>
+            <tr> <%# vod title %>
+            </tr>
+            <tr> <%# vod description %>
+            </tr>
+        </tr> 
+      </table> <%# End of Individual VOD Cell %>
+    </td>
+    <tfoot>
+      <tr>
+        <td>
+          <%# tfoot section %>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
 </main>
 
 <%- include('../partials/footer') %>

@@ -35,6 +35,15 @@ main {
   flex-direction: column;
 }
 
+button {
+  background-color: #008CBA;
+  border: none;
+  color: #f6f6f6;
+  padding: 5px 10px;
+  text-align: center;
+  border-radius: 4px;
+}
+
 .right {
   margin-left: auto;
 }
@@ -83,6 +92,15 @@ main {
   font-size: 24px;
   border-radius: 4px;
   padding: 8px;
+}
+
+.create-or-edit-section {
+  display:flex;
+  flex-direction: column;
+}
+
+.italicized {
+  font-style: italic;
 }
 
 .sidebar a:hover {

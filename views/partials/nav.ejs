@@ -14,7 +14,9 @@
     <a class="nav-anchor" href="/vods">
       Explore
     </a>
-    <a class="nav-anchor" href="/vods/new">
-      Upload
-    </a>
+    <% if (user) { %>
+      <a class="nav-anchor" href="/vods/new">
+        Upload
+      </a>
+    <% } %>
   </nav>
