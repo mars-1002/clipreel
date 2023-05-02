@@ -22,9 +22,11 @@
   <a href="/vods">
     Explore All VODs
   </a>
-  <a href="/vods/new">
-    Upload
-  </a>
+  <% if (user) { %>
+    <a href="/vods/new">
+      Upload
+    </a>
+  <% } %>
 </main>
 
 <%- include('./partials/footer') %>

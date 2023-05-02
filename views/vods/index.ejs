@@ -18,8 +18,7 @@
         <tr>
           <% vods.forEach(vod => { %>
             <tr>
-              <td> <%# vod preview/string http://img.youtube.com/vi/<youtube-video-id>/default.jpg
-                %>
+              <td> <%# vod preview%>
                 <a class="a-youtube-thumbnail" href="/vods/<%= vod._id %>">
                   <img src="http://img.youtube.com/vi/<%= vod.link %>/default.jpg" alt="">
                 </a>
@@ -44,7 +43,7 @@
       </tr>
     </tfoot>
   </table>
-  <%- include('../partials/index-main-footer') %> <%# Index footer partial for tabbing %>
+  <%- include('../partials/index-main-footer') %> <%# Index footer partial for tabbing feature %>
 </main>
 
 <%- include('../partials/footer') %>
