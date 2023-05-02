@@ -42,17 +42,16 @@
                   </p>
                   <button type="submit">Edit VOD</button>
                   
-                  <br>
-                  <p class="italicized">
-                    If you would like to delete your VOD, then you can use the delete button below to remove your submission. NOTE: You can't undo this!
-                  </p>
-                  <% if (vod.owner.equals(user?.profile._id)) { %>
-                    <form action="/vods/<%= vod._id %>?_method=DELETE" method="POST">
-                      <button class="btn" type="submit">Delete VOD</button>
-                    </form>
-                  <% } %>
+                  
                 </form>
-
+                
+                <br>
+                <p class="italicized">
+                  If you would like to delete your VOD, then you can use the delete button below to remove your submission. NOTE: You can't undo this!
+                </p>
+                <form action="/vods/<%= vod._id %>?_method=DELETE" method="POST">
+                  <button class="btn" type="submit">Delete VOD</button>
+                </form>
               </td>
             </tr>
             <tr> <%# vod title %>
