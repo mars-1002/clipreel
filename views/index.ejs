@@ -5,15 +5,18 @@
 
   <% if (user) { %>
     <h1>Welcome back, <%= user.profile.name %></h1>
-  <% } %>
-  <h1>hello, <%= user ? user.profile.name : "friend" %></h1>
-  <% if (user?.profile.avatar) { %>
-    <div>
-      <img
-        src="<%= user.profile.avatar %>"
-        alt="<%= user.profile.name %> avatar"
-      />
-    </div>
+    <% if (user?.profile.avatar) { %>
+      <div>
+        <img
+          src="<%= user.profile.avatar %>"
+          alt="<%= user.profile.name %> avatar"
+        />
+      </div>
+    <% } %>
+  <% }else { %>
+    <h1>Welcome to ClipReel</h1>
+    <a href="vods/login">Join Now</a>
+    <br>
   <% } %>
 
   <a href="/vods">
