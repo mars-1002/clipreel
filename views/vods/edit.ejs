@@ -18,7 +18,7 @@
         <tr>
             <tr>
               <td> <%# vod preview%>
-                <form class="create-or-edit-section" action="/vods" method="POST" autocomplete="off">
+                <form class="create-or-edit-section" action="/vods/<%= vod._id %>?_method=PUT" method="POST" autocomplete="off">
                   <label>Title <br>
                     <input type="string" name="title" value="<%= vod.title %>">
                   </label>
